@@ -1,1 +1,62 @@
-<p>forgotpass works!</p>
+<div class="forgotPassContainer">
+  <div class="imageBox">
+    <img src="assets/forgotpass.png" />
+  </div>
+  <div class="divBox animated bounceInUp">
+    <div class="title1">
+      <p>Forgot password</p>
+    </div>
+
+    <div class="title2">
+      <p>
+        Don't worry! Resseting your password is easy. Just type in your email
+        and username.
+      </p>
+    </div>
+
+    <form [formGroup]="forgotPassForm" (ngSubmit)="onUpdatePassword()">
+      <div class="form-group" style="margin-top: 30px">
+        <label for="email">EMAIL</label>
+        <input
+          type="email"
+          class="form-control forgotPassTextbox"
+          formControlName="email"
+          email
+          required
+          [readonly]="confirmedCreds"
+        />
+      </div>
+      <div class="form-group">
+        <label for="username">USERNAME</label>
+        <input
+          type="text"
+          class="form-control forgotPassTextbox"
+          formControlName="username"
+          required
+          [readonly]="confirmedCreds"
+        />
+      </div>
+      <div class="form-group" *ngIf="confirmedCreds">
+        <label for="password">PASSWORD</label>
+        <input
+          type="password"
+          class="form-control forgotPassTextbox"
+          formControlName="password"
+          required
+        />
+      </div>
+      <input
+          type="submit"
+          class="btn defaultButton forgotpassButton"
+          value="Submit"
+          [disabled]="forgotPassForm.invalid"
+        />
+      <p class="remember">
+        Did you remember your password?  <a
+        [routerLink]="['/Login']"
+        routerLinkActive="active"
+      >Try logging in.</a>
+      </p>
+    </form>
+  </div>
+</div>

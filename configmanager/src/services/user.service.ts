@@ -31,6 +31,10 @@ export class UserService {
         return this.appService.getUserList();
     }
 
+    getUserByUsername(username) {
+        return this.appService.getUserByUsername(username);
+    }
+
     changePassword(sourcenum, password) {
         return this.appService.changeUserPassword(sourcenum, password);
     }

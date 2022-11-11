@@ -33,6 +33,12 @@ namespace CalcmenuWebGlobal.Controllers
             return Ok(await _userService.GetUserList());
         }
 
+        [HttpGet("user/getuserbyusername/{username}")]
+        public async Task<ActionResult<List<Users>>> GetUserByUsername(string username)
+        {
+            return Ok(await _userService.GetUserByUsername(username));
+        }
+
         [HttpPost("createuser")]
         public async Task<ActionResult<bool>> CreateUser([FromBody] Users paramUsers)
         {

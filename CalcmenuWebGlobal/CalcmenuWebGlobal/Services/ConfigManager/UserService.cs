@@ -28,12 +28,12 @@ namespace CalcmenuWebGlobal.Services.Client
             int retVal = 0;
             //if (_helpers.UploadUserImage(paramUsers) == true)
             //{
-                try
-                {
-                    string storedProc = "sp_egswUpdateEgsToolsUsers @intSourceNum,@strFullName,@strUsername,@strPassword," +
-                    "@strEmailAddress,@intDepartment,@intPosition,@strImagePath,@intAction";
+            try
+            {
+                string storedProc = "sp_egswUpdateEgsToolsUsers @intSourceNum,@strFullName,@strUsername,@strPassword," +
+                "@strEmailAddress,@intDepartment,@intPosition,@strImagePath,@intAction";
 
-                    var paramvalues = new SqlParameter[] {
+                var paramvalues = new SqlParameter[] {
                     new SqlParameter("intSourceNum", paramUsers.SourceNum),
                     new SqlParameter("strFullName", paramUsers.FullName),
                     new SqlParameter("strUsername", paramUsers.Username),
@@ -45,13 +45,13 @@ namespace CalcmenuWebGlobal.Services.Client
                     new SqlParameter("intAction", 1)
                 };
 
-                    retVal = await _context.Database.ExecuteSqlRawAsync(storedProc, paramvalues);
-                }
-                catch (Exception ex)
-                {
-                    ex.Message.ToString();
-                    retVal = -2;
-                }
+                retVal = await _context.Database.ExecuteSqlRawAsync(storedProc, paramvalues);
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                retVal = -2;
+            }
             //}
 
             return retVal;
@@ -75,9 +75,28 @@ namespace CalcmenuWebGlobal.Services.Client
                            }).ToList());
 
             return retVal;
+        }
 
+        public async Task<List<Users>> GetUserByUsername(string username)
+        {
+            string strQuery = @"SELECT SourceNum, Username, Password, FullName, EmailAddress, Department, Position FROM EgsToolsUsers
+                              WHERE Username = '" + username + "'";
 
+            var result = await _context.Get_UserList.FromSqlRaw(strQuery).ToListAsync();
 
+            var retVal = new List<Users>(result.Select(c =>
+                           new Users
+                           {
+                               SourceNum = c.SourceNum,
+                               Username = c.Username,
+                               Password = c.Password,
+                               FullName = c.FullName,
+                               EmailAddress = c.EmailAddress,
+                               Department = c.Department,
+                               Position = c.Position
+                           }).ToList());
+
+            return retVal;
         }
 
         public async Task<int> UpdateUserPassword(int sourceNum, string password)

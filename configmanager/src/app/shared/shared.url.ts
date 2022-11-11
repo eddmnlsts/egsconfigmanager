@@ -14,6 +14,7 @@ export const Url = {
     loginUser: "/User/login/",
     createUser: "/User/createuser",
     getUserList: "/User/user/getuserlist",
+    getUserByUsername: "/User/user/getuserbyusername/",
     changeUserPassword: "/User/changepassword/",
     getUserConfigHistory: "/ConfigManager/getconfigdetailshistoryuser/",
     getPicklist: "/Configuration/getpicklist/",

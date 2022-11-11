@@ -18,6 +18,10 @@ export class AppService {
         return this.httpUtilityService.get(url.getNumeroList);
     }
 
+    public getUserByUsername(username: string) {
+        return this.httpUtilityService.get(url.getUserByUsername + username);
+    }
+
     public searchNumeroDesc(searchField: string) {
         return this.httpUtilityService.get(url.searchNumeroDesc + 'searchText=' + searchField);
     }
