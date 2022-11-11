@@ -1,0 +1,82 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a routerLinkActive="active" routerLink="/" class="navbar-brand">
+        <img src="assets/egslogo.png" alt="egslogo" class="companyLogo" />
+      </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav logoMenu">
+        <li routerLinkActive="active">
+          <a routerLink="/Dashboard" class="iconStyle"
+            ><span
+              ><fa-icon
+                [icon]="dashboardIcon"
+                [tooltip]="'Access dashboard of your data'"
+              ></fa-icon></span
+          ></a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/Numeros" class="iconStyle"
+            ><fa-icon
+              [icon]="toolsIcon"
+              [tooltip]="'Manage configuration of numeros'"
+            ></fa-icon
+          ></a>
+        </li>
+      </ul>
+      <!-- User Log-in Info -->
+      <ul class="nav navbar-nav navbar-right userMenu">
+        <li class="dropdown" appDropdown>
+          <span *ngIf="!imagePath" class="userMenuInitials">{{
+            initials
+          }}</span>
+          <span *ngIf="imagePath"><img src="{{ imagePath }}" /></span>
+          <ul
+            [ngClass]="!imagePath ? 'mt-35 dropdown-menu' : 'dropdown-menu'"
+            class="dropdown-menu"
+          >
+            <li class="dropdown-menu-header">
+              <span class="dropdown-menu-header_profilepic" *ngIf="!imagePath"
+                ><span>{{ initials }}</span></span
+              >
+              <span
+                class="dropdown-menu-header_profilepic_image"
+                *ngIf="imagePath"
+                ><img src="{{ imagePath }}"
+              /></span>
+              <span class="dropdown-menu-header_username">{{ fullName }}</span>
+            </li>
+            <li class="dropdown-menu-item" (click)="onNavigateUserProfile()">
+              <span class="iconcontainer"
+                ><fa-icon [icon]="userIcon"></fa-icon
+              ></span>
+              <span>Profile</span>
+            </li>
+            <li class="dropdown-menu-item" (click)="onNavigateConfigurationList()">
+              <span class="iconcontainer"
+                ><fa-icon [icon]="gearIcon"></fa-icon
+              ></span>
+              <span>Configuration</span>
+            </li>
+            <li class="dropdown-menu-item" (click)="onShowAbout()">
+              <span class="iconcontainer"
+                ><fa-icon [icon]="bookIcon"></fa-icon
+              ></span>
+              <span>About</span>
+            </li>
+            <li class="dropdown-menu-item" (click)="onLogoutUser()">
+              <span class="iconcontainer"
+                ><fa-icon
+                  [icon]="signoutIcon"
+                  style="font-size: 15.75px"
+                ></fa-icon
+              ></span>
+              <span>Log out</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

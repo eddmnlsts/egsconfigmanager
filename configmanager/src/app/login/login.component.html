@@ -1,0 +1,60 @@
+<div class="col-md-8 loginContainer">
+  <div class="row animated fadeInUp">
+    <p class="loginText">Login to Your Account</p>
+  </div>
+  <!-- <div class="row animated fadeInUp">
+    <p>Login using social networks</p>
+  </div>
+  <div class="row socialbuttons animated fadeInUp">
+    <a href="">Facebook</a>&nbsp;
+    <a href="">Google</a>
+  </div> -->
+  <div class="row logincredentials animated animated2 fadeInUp">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <hr />
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control loginTextbox"
+            placeholder="Username"
+            formControlName="username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control loginTextbox"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+        </div>
+        <div class="form-group" style="text-align: left">
+          <a (click)="onForgotPassword()" class="forgotLink">Forgot Password?</a>
+        </div>
+        <hr />
+        <input
+          type="submit"
+          class="btn altButton loginButton"
+          value={{submitButtonName}}
+          [disabled]="loginForm.invalid || loginDisable"
+        />
+      </form>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+<div class="col-md-4 infoContainer ">
+  <div class="row animated animated4 fadeInLeft">
+    <p class="loginTextWhite">New Here?</p>
+  </div>
+  <div class="row animated animated4 fadeInLeft">
+    <p>Fill up information and start your journey with us.</p>
+  </div>
+  <div class="row animated animated4 fadeInLeft">
+    <input type="button" class="btn defaultButton loginButton" (click)="onSignUpUser()" value="Sign up" />
+  </div>
+</div>

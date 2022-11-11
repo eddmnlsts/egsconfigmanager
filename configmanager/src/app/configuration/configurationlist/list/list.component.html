@@ -1,0 +1,31 @@
+<div class="row" style="margin-bottom: 5px"  *ngIf="myData">
+    <div class="col-md-11"></div>
+    <div class="col-md-1">
+        <button class="btn altButton" (click)="onAddItem(myData[0].type)" [tooltip]="'Add an item'">
+            <fa-icon [icon]="AddIcon"></fa-icon>
+        </button>
+    </div>
+</div>
+<div class="row list-header" *ngIf="myData">
+    <div class="col-md-4">DESCRIPTION</div>
+</div>
+<div class="row list-item" *ngFor="let data of myData">
+    <div class="col-md-10">{{data.description}}</div>
+    <div class="col-md-2">
+        <button class="btn defaultButton" [tooltip]="'Edit an item'" >
+            <fa-icon [icon]="PencilIcon" class="configListIcon"></fa-icon>
+          </button>
+          <button class="btn altButton" [tooltip]="'Delete an item'" (click)="onDeleteItem(data.code, myData[0].type)">
+              <fa-icon [icon]="TrashIcon" class="configListIcon"></fa-icon>
+          </button>
+    </div>
+</div>
+<ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="square-jelly-box"
+    [fullScreen]="true"
+    name="picklistloader"
+    ><p style="color: white">Please wait...</p></ngx-spinner
+  >

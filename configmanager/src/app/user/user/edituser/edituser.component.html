@@ -1,0 +1,52 @@
+<div class="userCredsSection">
+  <form [formGroup]="edituserForm" (submit)="onSaveEdit()">
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-2">Username:</div>
+        <div class="col-md-4">
+          <input
+            type="text"
+            style="width: 100%"
+            formControlName="username"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-2">Password:</div>
+        <div class="col-md-4">
+          <input
+            type="password"
+            style="width: 100%"
+            formControlName="password"
+            [ngClass]="{ textEdit: isEdit }"
+            required
+          />
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="submitSave" *ngIf="isEdit">
+            <fa-icon
+            [icon]="iconDisk"
+            [tooltip]="'Save password'"
+          ></fa-icon>
+        </button>
+          
+          <fa-icon
+            [icon]="iconCancel"
+            *ngIf="isEdit"
+            style="margin-left: 10px"
+            (click)="onCancelEdit()"
+            [tooltip]="'Cancel'"
+          ></fa-icon>
+          <fa-icon
+            [icon]="iconPen"
+            *ngIf="!isEdit"
+            (click)="onSetupEdit()"
+            [tooltip]="'Edit password'"
+          ></fa-icon>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

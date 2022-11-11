@@ -1,0 +1,49 @@
+.user-profile-section {
+    margin: 0 30px;
+}
+
+.userInformation img {
+    width: 160px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.userInformation .userMenuInitials {
+    background-color: var(--btn-alt-color-light);
+    border-radius: 50%;
+    font-size: 50px;
+    text-align: center;
+    padding: 50px;
+    font-weight: 500;
+}
+
+.userInformationDetails {
+    margin-left: 35px;
+}
+
+.userInformationDetails .userInfo {
+    font-size: 18px;
+}
+
+.userInformationDetails .name {
+    font-size: 28px !important;
+    font-weight: 500;
+}
+
+.email, .department, .position {
+    font-size: 15px;
+}
+
+.divCard {
+    margin: 0;
+}
+
+.divCard app-edituser {
+    padding: 15px 0 0 15px;
+    font-size: 16px;
+}
+
+.content {
+    text-align: center;
+    
+}

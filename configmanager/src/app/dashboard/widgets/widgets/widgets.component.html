@@ -1,0 +1,22 @@
+<div class="welcomeCard flex-container">
+    <div class="qotd-item">
+        <p class="title">Hello, {{fullName}}</p>
+        <p class="message" *ngIf="!isLoading"><b>Quote of the day</b></p>
+        <p class="quote" *ngIf="!isLoading">
+            "{{quoteoftheday}}"
+        </p>
+        <p class="author" *ngIf="!isLoading"><i>-{{author}}</i></p>
+    </div>
+  <div class="qotd-item-2">
+    <img src="assets/dashboard.png" alt="dashboard" />
+  </div>
+</div>
+<ngx-spinner
+  [fullScreen]="false"
+  bdColor="rgba(51, 51, 51, 0.0)"
+  type="square-jelly-box" 
+  template="<img src='assets/gear-loading.gif' style='width:200px'/>"
+>
+</ngx-spinner>
+
+

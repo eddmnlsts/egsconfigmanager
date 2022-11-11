@@ -1,0 +1,156 @@
+.logoMenu,
+.userMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.logoMenu {
+  height: 70px;
+}
+
+.userMenu {
+  margin-top: 10px;
+  border-radius: 100%;
+  font-weight: bold;
+}
+
+.userMenu:hover {
+  cursor: pointer;
+}
+
+.userMenuInitials {
+  margin-top: 25px;
+  border-radius: 100%;
+  background-color: var(--btn-alt-color-light);
+  font-weight: bold;
+  padding: 15px;
+  position: relative;
+  top: 15px;
+  transition: background-color 100ms ease-out 100ms;
+  transition: color 100ms ease-out 100ms;
+  
+}
+
+.userMenuInitials:hover {
+  background-color: var(--btn-alt-color);
+  color: #fff;
+}
+
+.userMenu img {
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+}
+
+.user-profile {
+  border: 1px solid black;
+  border-radius: 20px !important;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover {
+  background-color: transparent;
+  color: var(--nav-txt-color);
+}
+
+.dropdown-menu {
+  min-width: 360px;
+  padding: 10px 15px;
+  border-radius: 20px !important;
+  border: 0;
+  min-height: 200px;
+  font-weight: 500;
+}
+
+.mt-35 {
+  margin-top: 35px !important;
+}
+
+.dropdown-menu-header {
+  min-width: 300px;
+  border-radius: 20px !important;
+  min-height: 60px;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 18%);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: background-color 100ms ease-out 100ms;
+}
+
+.dropdown-menu-header:hover {
+  background-color: var(--btn-alt-color-light);
+}
+
+.dropdown-menu-header_profilepic {
+  margin-top: 10px;
+  border-radius: 100%;
+  background-color: var(--btn-alt-color-light);
+  font-weight: bold;
+  padding: 15px;
+}
+
+.dropdown-menu-header_profilepic_image {
+  margin-top: 10px;
+  border-radius: 100%;
+  background-color: lightblue;
+  font-weight: bold;
+}
+
+.dropdown-menu-header_profilepic_image img {
+  border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+}
+
+.dropdown-menu-header_username {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.dropdown-menu-item {
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.dropdown-menu-item > .iconcontainer {
+  background-color: transparent;
+  padding: 10px 12px;
+  border-radius: 100%;
+}
+
+.iconcontainer fa-icon {
+  font-size: 18px;
+}
+
+.dropdown-menu-item > span {
+  margin-left: 5px;
+}
+
+.dropdown-menu-item:hover {
+  background-color: rgba(213, 213, 213, 0.305);
+}
+
+.dropdown-menu-item_icon {
+  background-color: #dddddd;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.is_border {
+  border-bottom: 1px solid #bdbdbd;
+  margin-bottom: 5px;
+}
+
+.iconStyle {
+  font-size: 24px;
+  text-align: center;
+  margin-left: 15px;
+}
+
+.companyLogo {
+  width: 150px;
+}

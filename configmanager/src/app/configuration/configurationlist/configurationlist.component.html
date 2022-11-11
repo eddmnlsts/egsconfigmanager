@@ -1,0 +1,46 @@
+<div class="row" style="margin: 0 30px; margin-bottom: 30px;">
+  <div class="col-md-3 configList">
+    <a
+      [routerLink]="['Position']"
+      class="list-group-item clearfix"
+      routerLinkActive="active"
+    >
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">Position</h4>
+        <p class="list-group-item-text">Manage employees' position list</p>
+      </div>
+      <span class="pull-right">
+        <img alt="" class="img-responsive" style="max-height: 50px" />
+      </span>
+    </a>
+    <a
+      [routerLink]="['Department']"
+      class="list-group-item clearfix"
+      routerLinkActive="active"
+    >
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">Department</h4>
+        <p class="list-group-item-text">Manage company's department list</p>
+      </div>
+      <span class="pull-right">
+        <img alt="" class="img-responsive" style="max-height: 50px" />
+      </span>
+    </a>
+    <a
+      [routerLink]="['Client']"
+      class="list-group-item clearfix"
+      routerLinkActive="active"
+    >
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">Client</h4>
+        <p class="list-group-item-text">Manage client list for config manager</p>
+      </div>
+      <span class="pull-right">
+        <img alt="" class="img-responsive" style="max-height: 50px" />
+      </span>
+    </a>
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

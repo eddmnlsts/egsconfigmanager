@@ -1,0 +1,38 @@
+<div class="user-profile-section">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="divCard userInformation" style="display: flex">
+        <div class="flex">
+          <span class="userMenuInitials" *ngIf="!imageUser">{{
+            initials
+          }}</span>
+          <img src="{{ imageUser }}" *ngIf="imageUser" />
+          <div class="userInformationDetails">
+            <div class="row name">{{ name }}</div>
+            <div class="row email">
+              <fa-icon [icon]="envIcon" style="margin-right: 10px"></fa-icon
+              >{{ email }}
+            </div>
+            <div class="row department">
+              <b>{{ department }} - {{ position }}</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="divCard">
+        <h4>User Credentials</h4>
+        <app-edituser [loggedUser]="loggedUser" (loggedUserOutput)="loggedUserOutput($event)"></app-edituser>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="divCard" style="margin-top: 20px">
+        <app-activityhistory [loggedUser]="loggedUser"></app-activityhistory>
+      </div>
+    </div>
+    
+  </div>
+</div>

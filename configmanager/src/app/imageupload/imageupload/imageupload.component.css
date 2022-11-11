@@ -1,0 +1,88 @@
+.image-upload > label > input {
+    visibility:hidden;
+    width:0;
+    height:0
+  }
+
+  .image-upload {
+    border: 3px dotted var(--text-color);
+    display: flex;
+    width: 210px;
+    height: 210px;
+    cursor: pointer;
+  }
+
+  .image-upload > label {
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .image-upload > label > fa-icon {
+    font-size: 35px;
+  }
+
+.img-preview-container {
+    background-color: #f7f7f7;
+    position: relative;
+    height: 205px;
+    width: 205px;
+    cursor: pointer;
+}
+
+.img-preview-container .img-preview {
+    background: center center no-repeat;
+    background-size: contain;
+    height: 205px;
+    width: 205px;
+    cursor: pointer;
+}
+
+.img-loading-overlay {
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    opacity: .2;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.img-spinning-circle {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .img-spinning-circle:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+
+  .alert-success, .alert-danger {
+    margin-top: 10px;
+  }
+
+
+  .divClearButton {
+    width: 210px;
+    display: flex;
+  }
+
+  .clearButton {
+    margin: auto;
+    margin-top: 10px;
+  }

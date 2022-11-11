@@ -1,0 +1,123 @@
+<div class="col-md-4 infoContainer">
+  <p class="signupText">Welcome!</p>
+  <p class="signupTextDescription">Let's get to know you...</p>
+  <div class="registerImage">
+  </div>
+</div>
+<div class="col-md-8 signupContainer">
+  <form [formGroup]="signupForm" (ngSubmit)="onCreateUser()">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="form-group">
+          <label for="username">USERNAME</label>
+          <input
+            type="text"
+            class="form-control signupTextBox"
+            placeholder="Username"
+            formControlName="username"
+            required
+          />
+          <!-- <span *ngIf="signupForm.get('username').invalid">This name is invalid!</span> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="password">PASSWORD</label>
+          <input
+            type="password"
+            class="form-control signupTextBox"
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="form-group">
+          <label for="fullname">FULL NAME</label>
+          <input
+            type="text"
+            class="form-control signupTextBox"
+            placeholder="Fullname"
+            formControlName="fullname"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="email">E-MAIL</label>
+          &nbsp;
+          <fa-icon
+            *ngIf="
+              signupForm.get('email').invalid && signupForm.get('email').touched
+            "
+            class="error blinkIcon"
+            [icon]="infoCircleIcon"
+            [tooltip]="'Invalid email address'"
+          ></fa-icon>
+          <input
+            type="text"
+            class="form-control signupTextBox"
+            placeholder="Email"
+            formControlName="email"
+            email
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="department">DEPARTMENT</label>
+          <select
+            class="form-control signupDropdown"
+            formControlName="department"
+          >
+            <option value="-1"></option>
+            <option *ngFor="let dep of department" [value]="dep.code">{{dep.description}}</option>
+            required
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label for="department">POSITION</label>
+          <select
+            class="form-control signupDropdown"
+            formControlName="position"
+          >
+            <option value="-1"></option>
+            <option *ngFor="let pos of position" [value]="pos.code">{{pos.description}}</option>
+          </select>
+        </div>
+      </div>
+      <hr />
+      <div class="row" style="text-align: right">
+        <input
+          type="submit"
+          class="btn altButton signupButton"
+          value="Create user"
+          [disabled]="signupForm.invalid"
+        />
+        <input
+          type="button"
+          class="btn defaultButton signupButton"
+          (click)="onCancelCreateUser()"
+          value="Cancel"
+        />
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <app-imageupload (fileImage)="handleFileImage($event)"></app-imageupload>
+    </div>
+  </form>
+  <ngx-spinner 
+        bdColor="rgba(51, 51, 51, 0.8)" 
+        size="default" 
+        type="square-jelly-box" 
+        template="<img src='assets/gear-loading.gif' style='width:200px'/>"
+    >
+    </ngx-spinner> 
+</div>

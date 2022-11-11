@@ -1,0 +1,74 @@
+.config-list-command {
+    margin: 10px 0 20px 0;
+}
+
+.defaultTextbox {
+    padding: 10px;
+    width: 400px;
+    margin-right: 15px;
+}
+
+.altButton {
+    background-color: var(--btn-alt-color);
+    color: var( --btn-txt-color);
+    padding: 10px 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: none;
+}
+
+.defaultButton {
+    background-color: var(--btn-bg-color);
+    color: var( --btn-txt-color);
+    padding: 10px 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: none;
+}
+
+.defaultButton:hover {
+    background-color: var(--btn-bg-color-hover);
+    cursor: pointer;
+}
+
+.altButton:hover {
+    background-color: var(--btn-alt-color-hover);
+    cursor: pointer;
+}
+
+.btn:focus, input[type=text]:focus{ 
+    outline: none;
+}
+
+
+span.deleteicon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+span.deleteicon span {
+    position: absolute;
+    display: block;
+    right: 25px;
+    width: 15px;
+    height: 23px;
+    border-radius: 50%;
+    color: #222;
+    font: 13px monospace;
+    text-align: center;
+    line-height: 1em;
+    cursor: pointer;
+    font-size: 20px;
+}
+span.deleteicon input {
+    padding-right: 18px;
+    box-sizing: border-box;
+}
+
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1200px) {
+    .config-list-command {
+     display: none;
+    }
+  }

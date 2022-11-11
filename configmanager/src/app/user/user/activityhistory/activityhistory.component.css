@@ -1,0 +1,88 @@
+
+.legendSection {
+  margin-top: 20px;
+}
+
+.legendInsert {
+  background-color: var(--btn-bg-color);
+  min-height: 10px;
+  min-width: 80px;
+  color: #fff;
+  padding: 8px 15px;
+  margin-right:10px;
+}
+
+.legendUpdate {
+  background-color: var(--btn-alt-color);
+  min-height: 10px;
+  min-width: 80px;
+  color: #fff;
+  padding: 8px 15px;
+  margin-left: 20px;
+}
+
+.activityHistoryHeader {
+  background-color: #4e4e4e;
+  padding: 10px 15px;
+  color: #fff;
+  font-weight: 600;
+  padding: 13px;
+  margin-top: 60px;
+}
+
+.activityHistoryItem {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  margin: 0 0 3px 0;
+  transition: background-color 100ms ease-out 100ms;
+}
+
+.activityHistoryItem:hover {
+    background-color: var(--btn-bg-color-light);
+    cursor: pointer;
+  }
+
+  .noDataOnGrid {
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+  }
+
+
+  .borderInsert {
+    border-left: 5px solid var(--btn-bg-color);
+  }
+
+  .borderUpdate {
+    border-left: 5px solid var(--btn-alt-color);
+  }
+
+
+.divCardComponentHeader {
+    min-height: 0;
+    max-height: 500px;
+    overflow: overlay;
+    overflow-x: hidden;
+    min-height: 500px;
+}
+
+.divCardComponentHeader::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+    margin-top: 10px;
+}
+
+.divCardComponentHeader::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.divCardComponentHeader::-webkit-scrollbar-thumb
+{
+	background-color: var(--btn-bg-color-hover)
+}

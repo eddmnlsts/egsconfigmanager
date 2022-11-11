@@ -1,0 +1,76 @@
+.signupContainer {
+    padding-top: 75px;
+    background-color: #fff;
+    min-height: 100vh;
+    color: var(--text-color);
+    font-size: 14px !important;
+    padding-left: 50px;
+}
+
+.infoContainer p {
+    color: #fff;
+}
+
+.signupButton {
+    border-radius: 25px;
+}
+
+.signupText {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.signupTextDescription {
+    font-size: 25px;
+}
+
+.signupTextBox {
+    padding: 20px;
+    font-size: 18px;
+    border: 1px solid var(--text-color) !important;
+}
+
+.signupDropdown {
+    padding: 7px 20px;
+    height: 42px;
+    font-size: 18px;
+    border: 1px solid var(--text-color) !important;
+}
+
+hr {
+    border-top: 1px solid var(--btn-alt-color);
+}
+
+input.ng-invalid.ng-touched {
+    border: red 1px solid !important;
+}
+
+.blinkIcon {
+    animation: blink .5s ease-in infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1 }
+    50% { opacity: 0 }
+  }
+
+/* ------------------------------------------------- */
+
+.infoContainer {
+    background-color:var(--btn-alt-color);
+    min-height: 100vh;
+    padding-top: 150px;
+    text-align: center;
+    font-size: 14px !important;
+}
+
+.registerImage {
+    position: fixed;
+  left: 0;
+  bottom: 0;
+
+}
+
+.registerImage > img {
+    width: 80%;
+}

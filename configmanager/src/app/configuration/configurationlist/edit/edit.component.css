@@ -1,0 +1,11 @@
+.divCard {
+    margin: 0;
+}
+
+
+.editTextbox {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid var(--text-color) !important;
+    height: 40px;
+}

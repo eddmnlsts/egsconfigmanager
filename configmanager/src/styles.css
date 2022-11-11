@@ -1,0 +1,205 @@
+/* You can add global styles to this file, and also import other style files */
+/* Add application styles & imports to this file! */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+
+body {
+  --text-color: #434343;
+  --bkg-color: #e4e6eb;
+  --btn-txt-color: white;
+  --btn-bg-color: #4682b4;
+  --btn-bg-color-hover: #325e83;
+  --btn-alt-color: #d14341;
+  --btn-alt-color-hover: #a23432;
+  --nav-bg-color: #fff;
+  --nav-txt-color: #222;
+  --btn-bg-color-light: #94c5ec;
+  --btn-alt-color-light: rgb(255, 212, 220);
+  --grd-color-hover: rgb(216, 216, 216);
+}
+
+body {
+  background: var(--bkg-color);
+  font-family: Rubik, sans-serif;
+}
+
+h1,
+p {
+  color: var(--text-color);
+}
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  color: var(--btn-txt-color);
+  background-color: var(--btn-bg-color);
+}
+
+.navbar-default {
+  background-color: var(--nav-bg-color);
+  border: 0px;
+  border-radius: 0;
+  height: 70px !important;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
+  background-color: #fff;
+  color: var(--btn-alt-color);
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: var(--nav-txt-color);
+}
+
+.config-list-command {
+  margin: 10px 0 20px 0;
+}
+
+.defaultTextbox {
+  padding: 10px;
+  width: 400px;
+  margin-right: 15px;
+}
+
+.altButton {
+  background-color: var(--btn-alt-color);
+  color: var(--btn-txt-color);
+  padding: 10px 15px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: none;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.defaultButton {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-txt-color);
+  padding: 10px 15px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: none;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.defaultButton:hover {
+  background-color: var(--btn-bg-color-hover);
+  cursor: pointer;
+  color: #fff;
+}
+
+.defaultButton:focus,
+.altButton:focus {
+  color: #fff;
+}
+
+.altButton:hover {
+  background-color: var(--btn-alt-color-hover);
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn:focus,
+input[type="text"]:focus {
+  outline: none;
+}
+
+.divCard {
+  background-color: white;
+  padding: 20px 25px;
+  box-shadow: 1px 1px 0 1px rgb(0 0 0 / 12%);
+  -webkit-box-shadow: 1px 1px 0 1px rgb(0 0 0 / 12%);
+  -moz-box-shadow: 1px 1px 0 1px rgba(0, 0, 0, 0.12);
+  border-radius: 15px;
+  margin: 0 30px;
+  min-height: 200px;
+}
+
+.ngx-pagination {
+  padding: 10px 0 10px 0;
+}
+
+.error {
+  color: var(--btn-alt-color);
+}
+
+/* SWEETALERT POPUP */
+
+.swal2-popup {
+  font-size: 1.6rem !important;
+}
+
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+
+/* TOOLTIP */
+.tooltip-container {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  padding: 6px 12px;
+  font-size: 10px;
+  line-height: initial;
+  color: white;
+  width: auto;
+  background: #4e4e4e;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translate(-50%, -30%);
+  animation: tooltip-slide 0.18s ease-out 0.5s;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+@keyframes tooltip-slide {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

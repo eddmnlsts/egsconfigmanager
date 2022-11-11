@@ -1,0 +1,34 @@
+<div class="config-list-command">
+  <div class="row">
+    <div class="col-xl-3 col-md-4 col-xs-8">
+      <span class="deleteicon">
+        <input
+          type="text"
+          class="defaultTextbox"
+          placeholder="Search description..."
+          [(ngModel)]="searchItem"
+        />
+        <span (click)="onClearSearchItem()">x</span>
+      </span>
+    </div>
+    <div class="col-xl-3 col-md-4 col-xs-8">
+      <button class="btn btn-success altButton" (click)="onSearchItem()" [tooltip]="'Search'">
+        <fa-icon [icon]="iconSearch"></fa-icon>
+      </button>
+      <button class="btn btn-success altButton" (click)="onNewConfig()" [tooltip]="'Add Config'">
+        <fa-icon [icon]="iconAdd"></fa-icon>
+      </button>
+      <button class="btn btn-success defaultButton" (click)="onHandleExport()" [tooltip]="'Export Numero List'" [disabled]="disableExport">
+        <fa-icon [icon]="iconDownload"></fa-icon>
+      </button>
+     
+  </div>
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="square-jelly-box"
+    [fullScreen]="true"
+    ><p style="color: white">Please wait...</p></ngx-spinner
+  >
+</div>

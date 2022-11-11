@@ -1,0 +1,36 @@
+<div class="image-upload">
+  <label for="file-input">
+    <p *ngIf="imageStatus == ''">Upload your profile photo</p>
+    <fa-icon [icon]="iconUpload" *ngIf="imageStatus == ''"></fa-icon>
+
+    <input
+      #imageInput
+      id="file-input"
+      type="file"
+      accept="image/*"
+      (change)="processFile(imageInput)"
+    />
+
+    <div *ngIf="imageStatus == 'ok'" class="img-preview-container">
+      <div
+        class="img-preview"
+        [ngStyle]="{ 'background-image': 'url(' + selectedFile.src + ')' }"
+      ></div>
+
+      <!-- <div *ngIf="selectedFile.pending" class="img-loading-overlay">
+      <div class="img-spinning-circle"></div>
+    </div> -->
+
+      <!-- <div *ngIf="selectedFile.status === 'ok'" class="alert alert-success">
+        Image Uploaded Succesfuly!
+      </div>
+      <div *ngIf="selectedFile.status === 'fail'" class="alert alert-danger">
+        Image Upload Failed!
+      </div> -->
+    </div>
+  </label>
+</div>
+
+<div *ngIf="imageStatus == 'ok'" class="divClearButton">
+  <input type="button" class="btn defaultButton clearButton" value="Clear Image" (click)="onClearImageButton()" />
+</div>

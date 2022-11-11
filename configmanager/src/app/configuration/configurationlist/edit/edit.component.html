@@ -1,0 +1,29 @@
+<form class="form" [formGroup]="picklistForm" (ngSubmit)="onSubmit()">
+<div class="row" style="margin-bottom: 5px">
+    <div class="col-md-10"></div>
+    <div class="col-md-2" style="text-align: right">
+        <div style="display: inline-flex">
+            <button class="btn altButton" type="submit" [disabled]="picklistForm.invalid" [tooltip]="'Save config'">
+                <fa-icon [icon]="SaveIcon"></fa-icon>
+            </button>
+            <button class="btn defaultButton" (click)="onClose()" [tooltip]="'Cancel config edit'">
+                <fa-icon [icon]="XIcon"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="divCard">
+    <h4>
+        <span>Add new {{picklistType}}</span>
+    </h4>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              class="form-control editTextbox"
+              formControlName="description"
+              required
+            />
+        </div>
+</div>
+</form>

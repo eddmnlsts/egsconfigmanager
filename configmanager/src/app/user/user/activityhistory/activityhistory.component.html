@@ -1,0 +1,40 @@
+
+<div class="divCardComponentHeader" *ngIf="userHistory">
+<h4>User Activity History</h4>
+  <div class="legendSection">
+    <div class="col-xl-1 col-md-2"><b>LEGEND</b></div>
+    <div class="col-xl-1 col-md-1" >
+      <span class="legendInsert">INSERT</span>
+    </div>
+    <div class="col-xl-1 col-md-1">
+      <span class="legendUpdate">UPDATE</span>
+    </div>
+  </div>
+  <div class="row activityHistoryHeader">
+    <div class="col-md-2">DATE AND TIME</div>
+    <div class="col-md-2">NUMERO</div>
+    <div class="col-md-8">DESCRIPTION</div>
+    <!-- <div class="col-md-3">TYPE</div> -->
+  </div>
+  <div
+    class="row activityHistoryItem"
+    *ngFor="let uh of userHistory"
+    [ngClass]="{
+      borderInsert: uh.activityType === 'INSERT',
+      borderUpdate: uh.activityType === 'UPDATE'
+    }"
+  >
+    <div class="col-md-2">{{ uh.dateActivity }}</div>
+    <div class="col-md-2">{{ uh.numero }}</div>
+    <div class="col-md-8">{{ uh.description }}</div>
+    <!-- <div class="col-md-3">{{uh.activityType}}</div> -->
+  </div>
+  <div class="row noDataOnGrid" *ngIf="count === 0">No data available</div>
+</div>
+<ngx-spinner
+  [fullScreen]="false"
+  bdColor="rgba(51, 51, 51, 0.0)"
+  type="square-jelly-box" 
+  template="<img src='assets/gear-loading.gif' style='width:200px'/>"
+>
+</ngx-spinner>

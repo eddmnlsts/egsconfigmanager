@@ -1,0 +1,36 @@
+.userCredsSection .form-group {
+    display: flex;
+    align-items: center;
+}
+
+.userCredsSection input {
+    width: 100%;
+    padding: 4px 10px;
+    border: 0;
+    font-size: 18px;
+}
+
+
+.textEdit {
+    background-color: #c3daed;
+}
+
+.submitSave {
+    background-color: transparent;
+    color: var(--text-color);
+    padding:0;
+}
+
+fa-icon {
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 100ms ease-out 100ms
+}
+
+fa-icon:hover {
+    color: var(--btn-bg-color);
+}
+
+input.ng-invalid.ng-touched {
+    background-color: var(--btn-alt-color-light);
+}

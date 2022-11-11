@@ -1,0 +1,31 @@
+<div class="config-manager-section">
+  <app-commands></app-commands>
+  <div class="configHeader">
+    <div class="row">
+      <div class="col-xs-1">NUMERO</div>
+      <div class="col-xs-4">DESCRIPTION</div>
+      <div class="col-xs-2">CLIENT</div>
+      <div class="col-xs-3">REMARKS</div>
+      <div class="col-xs-2"></div>
+    </div>
+  </div>
+  <div class="configItem">
+    <div class="row" *ngFor="let numero of numeros | paginate: { itemsPerPage: 15, currentPage: p }" style="display: flex; align-items: center;">
+      <div class="col-xs-1 ">{{numero.numero}}</div>
+      <div class="col-xs-4">{{numero.description}}</div>
+      <div class="col-xs-2">{{numero.client}}</div>
+      <div class="col-xs-3">{{numero.remarks}}</div>
+      <div class="col-xs-2">
+        <button class="btn defaultButton" [tooltip]="'Edit a config'" (click)="onEditConfig(numero)">
+          <fa-icon [icon]="PencilIcon" class="configListIcon"></fa-icon>
+        </button>
+        <button class="btn altButton" [tooltip]="'Delete a config'" (click)="onDeleteConfig(numero)">
+            <fa-icon [icon]="TrashIcon" class="configListIcon"></fa-icon>
+        </button>
+      </div>
+    </div>
+    
+    <div class="row noDataOnGrid" *ngIf="!numeros || numeros.length === 0">No data available</div>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

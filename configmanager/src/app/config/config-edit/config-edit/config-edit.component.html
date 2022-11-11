@@ -1,0 +1,78 @@
+<div class="divCard">
+  <h4>
+    <span *ngIf="!editMode">Add new</span
+    ><span *ngIf="editMode">Edit</span> config
+  </h4>
+  <form [formGroup]="numeroForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="numero">Numero</label>
+      <input
+        type="text"
+        name="numero"
+        class="form-control"
+        formControlName="numero"
+        disabled
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        name="description"
+        class="form-control"
+        formControlName="description"
+        required
+      />
+      <span
+        *ngIf="
+          numeroForm.get('description').invalid &&
+          numeroForm.get('description').touched
+        "
+        class="error"
+        >Please enter a description!</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="client">Client</label>&nbsp;
+      <fa-icon
+        [icon]="infoCircleIcon"
+        [tooltip]="'Add a client in configuration section'"
+      ></fa-icon>
+      <select class="form-control" formControlName="client">
+        <option *ngFor="let clnt of clients" [value]="clnt.code">{{clnt.description}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="remarks">Remarks</label>
+      <input
+        type="text"
+        name="remarks"
+        class="form-control"
+        formControlName="remarks"
+        required
+      />
+    </div>
+    <hr />
+    <input
+      type="submit"
+      class="btn altButton"
+      value="Save"
+      [disabled]="numeroForm.invalid"
+    />
+    <input
+      type="button"
+      class="btn defaultButton"
+      value="Cancel"
+      (click)="onCancelConfig()"
+    />
+  </form>
+  <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="square-jelly-box"
+    [fullScreen]="true"
+    ><p style="color: white">Please wait...</p></ngx-spinner
+  >
+</div>
