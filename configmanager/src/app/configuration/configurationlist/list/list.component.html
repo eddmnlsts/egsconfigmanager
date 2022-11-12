@@ -12,10 +12,10 @@
 <div class="row list-item" *ngFor="let data of myData">
     <div class="col-md-10">{{data.description}}</div>
     <div class="col-md-2">
-        <button class="btn defaultButton" [tooltip]="'Edit an item'" >
+        <button class="btn defaultButton" [tooltip]="'Edit an item'" (click)="onEditItem(data, myData[0].type)" >
             <fa-icon [icon]="PencilIcon" class="configListIcon"></fa-icon>
           </button>
-          <button class="btn altButton" [tooltip]="'Delete an item'" (click)="onDeleteItem(data.code, myData[0].type)">
+          <button class="btn altButton" [tooltip]="'Delete an item'" (click)="onDeleteItem(data, myData[0].type)">
               <fa-icon [icon]="TrashIcon" class="configListIcon"></fa-icon>
           </button>
     </div>

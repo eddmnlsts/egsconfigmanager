@@ -14,7 +14,8 @@
 </div>
 <div class="divCard">
     <h4>
-        <span>Add new {{picklistType}}</span>
+        <span *ngIf="!editMode">Add new {{picklistType}}</span>
+        <span *ngIf="editMode">Edit {{picklistType}}</span>
     </h4>
         <div class="form-group">
             <label for="description">Description</label>

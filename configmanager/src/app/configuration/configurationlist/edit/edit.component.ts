@@ -15,6 +15,7 @@ export class EditComponent implements OnInit {
 
   SaveIcon = faSave;
   XIcon = faX;
+
   
   picklistType;
   picklistForm: FormGroup;
@@ -22,6 +23,8 @@ export class EditComponent implements OnInit {
   id: number;
   editMode: boolean = false;
   codeTable: number = 0;
+  code: number = 0;
+  value: string = ''
 
   constructor(private route: ActivatedRoute, 
               private router: Router,
@@ -32,6 +35,9 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.picklistType = queryParams['PLType'];
+      this.editMode = queryParams['code'] > 0 ? true: false;
+      this.code = parseInt(queryParams['code']);
+      this.value = queryParams['value'];
       this.initForm();
     });
   }
@@ -39,7 +45,7 @@ export class EditComponent implements OnInit {
   onSubmit() {
 
     const newParam = {
-      "code": 0,
+      "code": this.code,
       "description": this.picklistForm.value["description"]
      };
 
@@ -59,6 +65,14 @@ export class EditComponent implements OnInit {
           this.navigatePicklist();
         }
       });
+     } else {
+      this.configurationService.insertUpdatePicklist(newParam, this.codeTable, 2).subscribe(res=> {
+        if (res == -1) {
+          this.alertService.alertMixin(5000, 'success', 'Updated successfully').fire();
+          this.spinnerService.hide();
+          this.navigatePicklist();
+        }
+      });
      }
   }
 
@@ -69,6 +83,9 @@ export class EditComponent implements OnInit {
   private initForm() {
     let description = '';
 
+    if (this.editMode) { 
+      description = this.value
+    }
     this.picklistForm = new FormGroup({
       description: new FormControl(description)
     });

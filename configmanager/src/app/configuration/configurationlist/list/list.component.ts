@@ -44,7 +44,7 @@ export class ListComponent implements OnInit {
     this.router.navigate(['New'], { relativeTo: this.route.parent, queryParams: {PLType: type}});
   }
 
-  onDeleteItem(code, pltype) {
+  onDeleteItem(data, pltype) {
 
     if (pltype === 'client') {
       this.codeTable = 1
@@ -54,15 +54,15 @@ export class ListComponent implements OnInit {
       this.codeTable = 3
      }
 
-    this.alertService.alertConfirm('question', 'Are you sure?', 'Do you really wish to delete a ' + pltype + '?')
+    this.alertService.alertConfirm('question', 'Are you sure?', 'Do you really wish to delete a ' + pltype + ' <b>' + data.description + '</b>?')
     .then((result) => {
      if (result.isConfirmed) {
       this.spinnerService.show();
-      this.configurationService.deletePicklist(code, this.codeTable).subscribe(res => {
+      this.configurationService.deletePicklist(data.code, this.codeTable).subscribe(res => {
         if (res) {
           this.spinnerService.hide();
           this.alertService.alertMixin(5000, 'success', 'Deleted successfully').fire();
-          const index = this.myData.findIndex(a => a.code == code);
+          const index = this.myData.findIndex(a => a.code == data.code);
           this.myData.splice(index, 1);
           this.configurationService.changedPicklist.next(this.myData);
         }
@@ -74,4 +74,7 @@ export class ListComponent implements OnInit {
    
   }
 
+  onEditItem(data, pltype) {
+    this.router.navigate(['Edit'], { relativeTo: this.route.parent, queryParams: {PLType: pltype, code: data.code, value: data.description}});
+  }
 }
