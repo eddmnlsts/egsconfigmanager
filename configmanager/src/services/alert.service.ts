@@ -58,4 +58,38 @@ export class AlertService {
         })
     }
 
+    alertTimer(title, timer) {
+      let timerInterval
+
+      return Swal.fire({
+        title: title,
+        html: 'I will close in <strong></strong> seconds.<br/><br/>',
+        timer: timer * 1000,
+        confirmButtonText: 'Keep me logged in!',
+        allowOutsideClick: false,
+        didOpen: () => {
+          const content = Swal.getHtmlContainer()
+          const $ = content.querySelector.bind(content)
+          
+
+          timerInterval = setInterval(() => {
+            Swal.getHtmlContainer().querySelector('strong')
+              .textContent = (Swal.getTimerLeft() / 1000)
+                .toFixed(0)
+          }, 100)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then(result => {
+        if (result.isConfirmed) {
+          clearInterval(timerInterval);
+          return true
+        } else if (result.isDismissed) {
+          return false
+        }
+          
+      })
+    }
+
 }

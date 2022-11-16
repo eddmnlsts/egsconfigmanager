@@ -43,6 +43,7 @@ import { ClientlistComponent } from './configuration/configurationlist/client/cl
 import { ListComponent } from './configuration/configurationlist/list/list.component';
 import { EditComponent } from './configuration/configurationlist/edit/edit.component';
 import { ForgotpassComponent } from './user/forgotpass/forgotpass.component';
+import { AutoLogoutService } from 'src/services/autologoffservice';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,7 @@ import { ForgotpassComponent } from './user/forgotpass/forgotpass.component';
     NgxPaginationModule,
     NgChartsModule
   ],
-  providers: [GlobalService, AlertService, NumeroService, AuthService, AuthGuard, EncryptDecryptService, ThirdPartyService],
+  providers: [GlobalService, AlertService, NumeroService, AuthService, AuthGuard, EncryptDecryptService, ThirdPartyService, AutoLogoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

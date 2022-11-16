@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { AutoLogoutService } from 'src/services/autologoffservice';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'configmanager';
   showHeader: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private autoLogout: AutoLogoutService) {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/Login' || event['url'] == '/Signup' || event['url'] == '/ForgotPassword') {
@@ -20,6 +21,8 @@ export class AppComponent implements OnInit {
         }
       }
     });
+
+    this.autoLogout.check();
   }
 
   ngOnInit(): void {

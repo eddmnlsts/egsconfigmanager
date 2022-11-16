@@ -19,8 +19,6 @@ export class ConfigurationlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedinUser = this.userService.getLoggedInUserDetails();
-    console.log(this.loggedinUser);
-
   }
   
 
