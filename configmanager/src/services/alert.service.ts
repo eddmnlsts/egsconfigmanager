@@ -63,7 +63,7 @@ export class AlertService {
 
       return Swal.fire({
         title: title,
-        html: 'I will close in <strong></strong> seconds.<br/><br/>',
+        html: 'You will be automatically logged out in <strong></strong> seconds.<br/><br/>',
         timer: timer * 1000,
         confirmButtonText: 'Keep me logged in!',
         allowOutsideClick: false,

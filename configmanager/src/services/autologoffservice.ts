@@ -86,7 +86,7 @@ export class AutoLogoutService {
 
     this.ngZone.run(() => {
       if (this.isUserLoggedIn()) {
-        if (this.minutes <= 1) {
+        if (this.minutes < 1) {
           clearInterval(this.interV);
           this.alertService
             .alertTimer('Session is about to expire', this.seconds)
