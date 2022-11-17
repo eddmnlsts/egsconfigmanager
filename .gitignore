@@ -289,3 +289,4 @@ testem.log
 Thumbs.db
 
 configmanager/.angular/
+dist/
