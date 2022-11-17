@@ -1,0 +1,18 @@
+<canvas
+  baseChart
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend"
+>
+</canvas>
+<ngx-spinner
+  [fullScreen]="false"
+  bdColor="rgba(51, 51, 51, 0.0)"
+  type="square-jelly-box" 
+  template="<img src='assets/gear-loading.gif' style='width:200px'/>"
+>
+</ngx-spinner>
+

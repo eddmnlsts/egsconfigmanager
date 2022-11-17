@@ -62,6 +62,10 @@ export class AppService {
         return this.httpUtilityService.get(url.getClientCountChart1);
     }
 
+    public getUsersPerDepartmentChart2() {
+        return this.httpUtilityService.get(url.getUsersPerDepartmentChart2);
+    }
+
     public createUser(userToCreate) {
         return this.httpUtilityService.post(url.createUser, userToCreate);
     }

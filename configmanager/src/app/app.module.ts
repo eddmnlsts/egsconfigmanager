@@ -44,6 +44,7 @@ import { ListComponent } from './configuration/configurationlist/list/list.compo
 import { EditComponent } from './configuration/configurationlist/edit/edit.component';
 import { ForgotpassComponent } from './user/forgotpass/forgotpass.component';
 import { AutoLogoutService } from 'src/services/autologoffservice';
+import { UserperdepComponent } from './dashboard/charts/userperdep/userperdep.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { AutoLogoutService } from 'src/services/autologoffservice';
      ClientlistComponent,
      ListComponent,
      EditComponent,
-     ForgotpassComponent
+     ForgotpassComponent,
+     UserperdepComponent
   ],
   imports: [
     BrowserModule,

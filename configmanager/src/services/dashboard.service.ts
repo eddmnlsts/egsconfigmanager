@@ -14,4 +14,8 @@ export class DashboardService {
   getClientCountChart() {
     return this.appService.getClientCountChart();
   }
+
+  getUsersPerDepartmentChart() {
+    return this.appService.getUsersPerDepartmentChart2();
+  }
 }

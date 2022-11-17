@@ -17,6 +17,7 @@ namespace CalcmenuWebGlobal.Services.Client
         Task<List<Numeros>> GetNumero(string searchText);
         Task<int> InsertUpdateNumeroHistory(ConfigDetailsHistory[] histories, int action);
         Task<List<ClientListChart1>> GetClientCountChart1();
+        Task<List<ClientListChart1>> GetUsersPerDepartmentChart2();
         Task<List<ConfigDetailUserHistory>> GetConfigUserHistory(int sourceNum);
     }
 }

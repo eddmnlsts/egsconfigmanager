@@ -11,6 +11,7 @@ export const Url = {
     updateNumeroHistory: "/ConfigManager/historyupdate/",
     exportNumeroList: "/ConfigManager/exportnumero/",
     getClientCountChart1: "/ConfigManager/getclientcountchart1",
+    getUsersPerDepartmentChart2: "/ConfigManager/getusersperdepartmentchart2",
     loginUser: "/User/login/",
     createUser: "/User/createuser",
     getUserList: "/User/user/getuserlist",

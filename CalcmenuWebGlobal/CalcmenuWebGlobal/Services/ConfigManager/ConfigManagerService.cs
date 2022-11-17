@@ -232,6 +232,27 @@ namespace CalcmenuWebGlobal.Services.Client
 
         }
 
+        public async Task<List<ClientListChart1>> GetUsersPerDepartmentChart2()
+        {
+            string strQuery = @"SELECT COUNT(D.Description) 'Y', D.Description 'Name' FROM EgsToolsUsers U
+                                INNER JOIN EgsToolsDepartment D ON D.Code = U.Department GROUP BY D.Description
+                                ORDER BY Y DESC";
+
+
+            var result = await _context.Get_ClientItemsChart1.FromSqlRaw(strQuery).ToListAsync();
+
+            var retVal = new List<ClientListChart1>();
+
+            for (int i = 0; i <= result.Count - 1; i++)
+            {
+                var cList = new ClientListChart1();
+                cList.Y = result[i].Y;
+                cList.Name = result[i].Name;
+                retVal.Add(cList);
+            }
+            return retVal;
+        }
+
         public async Task<List<ConfigDetailUserHistory>> GetConfigUserHistory(int sourceNum)
         {
             string storedProc = "EXEC sp_egswGetUserActivity @intSourceNum = " + sourceNum;

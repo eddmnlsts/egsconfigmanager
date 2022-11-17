@@ -4,11 +4,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from 'src/services/dashboard.service';
 
 @Component({
-  selector: 'app-charts',
-  templateUrl: './charts.component.html',
-  styleUrls: ['./charts.component.css']
+  selector: 'app-userperdep',
+  templateUrl: './userperdep.component.html',
+  styleUrls: ['./userperdep.component.css']
 })
-export class ChartsComponent implements OnInit {
+export class UserperdepComponent implements OnInit {
 
   dataArry: any[] = [];
   labelArry: any[] = [];
@@ -29,7 +29,7 @@ export class ChartsComponent implements OnInit {
   ngOnInit(): void {
     
     this.spinnerService.show();
-    this.dashboardService.getClientCountChart().subscribe(res => {
+    this.dashboardService.getUsersPerDepartmentChart().subscribe(res => {
       for (var i = 0; i <= res.length - 1; i++) {
         this.pieChartLabels.push(res[i].name);
         this.data.push(res[i].y);

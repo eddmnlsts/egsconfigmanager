@@ -91,6 +91,13 @@ namespace CalcmenuWebGlobal.Controllers
             return Ok(await _configManagerService.GetClientCountChart1());
         }
 
+        // GET: api/configmanager/getusersperdepartmentchart2/
+        [HttpGet("getusersperdepartmentchart2")]
+        public async Task<ActionResult<List<ClientListChart1>>> getusersperdepartmentchart2()
+        {
+            return Ok(await _configManagerService.GetUsersPerDepartmentChart2());
+        }
+
         // GET: api/configmanager/getconfigdetailshistoryuser/
         [HttpGet("getconfigdetailshistoryuser/{sourceNum}")]
         public async Task<ActionResult<List<ConfigDetailUserHistory>>> getconfigdetailshistoryuser(int sourceNum)
