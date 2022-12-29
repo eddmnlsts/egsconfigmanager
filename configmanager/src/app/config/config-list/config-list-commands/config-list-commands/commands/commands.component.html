@@ -7,6 +7,7 @@
           class="defaultTextbox"
           placeholder="Search description..."
           [(ngModel)]="searchItem"
+          (keyup.enter)="onSearchItem()"
         />
         <span (click)="onClearSearchItem()">x</span>
       </span>

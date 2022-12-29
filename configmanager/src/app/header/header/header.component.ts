@@ -46,9 +46,16 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogoutUser() {
-    sessionStorage.removeItem('userSession');
-    sessionStorage.removeItem('session');
-    this.router.navigate(['Login'], { relativeTo: this.route.parent });
+    this.alertService.alertConfirm('question', 'Are you sure?', 'You will be logged out of the system')
+    .then((result) => {
+      if (result.isConfirmed) {
+        sessionStorage.removeItem('userSession');
+        sessionStorage.removeItem('session');
+        this.router.navigate(['Login'], { relativeTo: this.route.parent });
+      }
+    });
+
+    
   }
 
   onNavigateUserProfile() {
