@@ -107,7 +107,8 @@ export class ConfigEditComponent implements OnInit {
       "numero": this.numeroForm.value["numero"],
       "description": this.numeroForm.value["description"],
       "client": this.numeroForm.value["client"],
-      "remarks": this.numeroForm.value["remarks"]
+      "remarks": this.numeroForm.value["remarks"],
+      "createdby": JSON.parse(this.encryptDecryptService.decryptData(sessionStorage.getItem('session'))).sourceNum
      }];
 
     this.spinnerService.show();
