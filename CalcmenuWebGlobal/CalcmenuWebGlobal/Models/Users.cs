@@ -27,8 +27,10 @@ namespace CalcmenuWebGlobal.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string EmailAddress { get; set; }
-        public int Department { get; set; }
-        public int Position { get; set; }
+        public string Department { get; set; }
+        public string Position { get; set; }
+
+        public bool IsAdmin { get; set; }
 
         [NotMapped]
         public Image Image { get; set;  }

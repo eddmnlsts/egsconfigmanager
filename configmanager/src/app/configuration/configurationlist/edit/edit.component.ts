@@ -36,7 +36,7 @@ export class EditComponent implements OnInit {
     this.route.queryParams.subscribe((queryParams: Params) => {
       this.picklistType = queryParams['PLType'];
       this.editMode = queryParams['code'] > 0 ? true: false;
-      this.code = queryParams['code'] == undefined ? 1: queryParams['code']
+      this.code = queryParams['code'] == undefined ? 1: parseInt(queryParams['code'])
       this.value = queryParams['value'];
       this.initForm();
     });

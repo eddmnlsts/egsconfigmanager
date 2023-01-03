@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faTachometer, faTools, faGear, faUser, faBook ,faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faTachometer, faTools, faGear, faUser, faBook ,faSignOut, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/models/user.model';
 import { AlertService } from 'src/services/alert.service';
 import { EncryptDecryptService } from 'src/services/encryptDecrypt.service';
@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   signoutIcon = faSignOut;
   bookIcon = faBook;
   userIcon = faUser;
+  usersIcon = faUsers;
 
   //Variable
   fullName = '';
@@ -64,6 +65,10 @@ export class HeaderComponent implements OnInit {
 
   onNavigateConfigurationList() {
     this.router.navigate(['Configuration'], { relativeTo: this.route.parent });
+  }
+
+  onNagivateUsersList() {
+    this.router.navigate(['Users'], { relativeTo: this.route.parent });
   }
 
   onShowAbout() {

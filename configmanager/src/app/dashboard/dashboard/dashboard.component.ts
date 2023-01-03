@@ -13,6 +13,7 @@ export class DashboardComponent {
   configCountByUser = 0;
   lastConfigNumero = '';
   lastConfigDescription = '';
+  lastConfigClient = ''
 
  constructor(private userService: UserService, private numeroService: NumeroService) {
     let sourcenum = this.userService.getLoggedInUserDetails().sourceNum;
@@ -34,6 +35,7 @@ export class DashboardComponent {
     if (res.length > 0) {
       this.lastConfigNumero = res[0].numero;
       this.lastConfigDescription = res[0].description;
+      this.lastConfigClient = res[0].client;
     }
   })
  }

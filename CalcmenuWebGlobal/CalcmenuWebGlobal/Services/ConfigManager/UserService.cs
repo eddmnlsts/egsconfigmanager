@@ -59,7 +59,11 @@ namespace CalcmenuWebGlobal.Services.Client
 
         public async Task<List<Users>> GetUserList()
         {
-            string strQuery = "SELECT SourceNum, Username, Password, FullName, EmailAddress, Department, Position FROM EgsToolsUsers";
+            string strQuery = @"SELECT SourceNum, Username, Password, FullName, EmailAddress, Department = D.Description, Position = P.Description, IsAdmin 
+                                FROM EgsToolsUsers U
+                                INNER JOIN EgsToolsDepartment D ON D.Code = U.Department
+                                INNER JOIN EgsToolsPosition P ON P.Code = U.Position
+                                ";
             var result = await _context.Get_UserList.FromSqlRaw(strQuery).ToListAsync();
 
             var retVal = new List<Users>(result.Select(c =>
@@ -71,7 +75,8 @@ namespace CalcmenuWebGlobal.Services.Client
                                FullName = c.FullName,
                                EmailAddress = c.EmailAddress,
                                Department = c.Department,
-                               Position = c.Position
+                               Position = c.Position,
+                               IsAdmin = c.IsAdmin,
                            }).ToList());
 
             return retVal;
@@ -79,7 +84,10 @@ namespace CalcmenuWebGlobal.Services.Client
 
         public async Task<List<Users>> GetUserByUsername(string username)
         {
-            string strQuery = @"SELECT SourceNum, Username, Password, FullName, EmailAddress, Department, Position FROM EgsToolsUsers
+            string strQuery = @"SELECT SourceNum, Username, Password, FullName, EmailAddress, Department = D.Description, Position = P.Description, IsAdmin 
+                                FROM EgsToolsUsers U
+                                INNER JOIN EgsToolsDepartment D ON D.Code = U.Department
+                                INNER JOIN EgsToolsPosition P ON P.Code = U.Position
                               WHERE Username = '" + username + "'";
 
             var result = await _context.Get_UserList.FromSqlRaw(strQuery).ToListAsync();
@@ -93,7 +101,8 @@ namespace CalcmenuWebGlobal.Services.Client
                                FullName = c.FullName,
                                EmailAddress = c.EmailAddress,
                                Department = c.Department,
-                               Position = c.Position
+                               Position = c.Position,
+                               IsAdmin = c.IsAdmin
                            }).ToList());
 
             return retVal;

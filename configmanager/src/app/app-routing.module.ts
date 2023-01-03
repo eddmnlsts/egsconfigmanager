@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 import { ForgotpassComponent } from "./user/forgotpass/forgotpass.component";
 import { SignupComponent } from "./user/signup/signup/signup.component";
 import { UserComponent } from "./user/user/user/user.component";
+import { UsersComponent } from "./users/users.component";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/Dashboard', pathMatch: 'full'},
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
         {path: 'New', component: EditComponent },
         {path: 'Edit', component: EditComponent},
     ]},
+    {path: 'Users', canActivate: [AuthGuard], component: UsersComponent},
     {path: 'User', canActivate: [AuthGuard], component: UserComponent},
     {path: 'Signup', component: SignupComponent},
     {path: 'Login', component: LoginComponent},

@@ -59,6 +59,12 @@
               ></span>
               <span>Configuration</span>
             </li>
+            <li class="dropdown-menu-item" (click)="onNagivateUsersList()" *ngIf="this.loggedUser.isAdmin">
+              <span class="iconcontainer"
+                ><fa-icon [icon]="usersIcon"></fa-icon
+              ></span>
+              <span>Users List</span>
+            </li>
             <li class="dropdown-menu-item" (click)="onShowAbout()">
               <span class="iconcontainer"
                 ><fa-icon [icon]="bookIcon"></fa-icon

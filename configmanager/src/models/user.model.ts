@@ -6,11 +6,12 @@ export class User {
     public Username: string;
     public Password: string;
     public EmailAddress: string;
-    public Department: number;
-    public Position: number;
+    public Department: string;
+    public Position: string;
     public Image: Image;
+    public IsAdmin: boolean;
 
-    constructor(SourceNum: number, FullName: string, Username: string, Password: string, EmailAddress: string, Department:number, Position: number, Image: Image) {
+    constructor(SourceNum: number, FullName: string, Username: string, Password: string, EmailAddress: string, Department:string, Position: string, Image: Image, IsAdmin: boolean) {
         this.SourceNum = SourceNum;
         this.FullName = FullName;
         this.EmailAddress = EmailAddress;
@@ -19,5 +20,6 @@ export class User {
         this.Department = Department;
         this.Position = Position;
         this.Image = Image;
+        this.IsAdmin = IsAdmin;
     }
 }

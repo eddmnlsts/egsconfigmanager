@@ -1,0 +1,26 @@
+<div class="users-list-section">
+    <div class="tableHeader">
+      <div class="row">
+        <div class="col-xs-1">USERNAME</div>
+        <div class="col-xs-3">FULL NAME</div>
+        <div class="col-xs-3">EMAIL ADDRESS</div>
+        <div class="col-xs-2">DEPARTMENT</div>
+        <div class="col-xs-2">POSITION</div>
+        <div class="col-xs-1">IS ADMIN?</div>
+      </div>
+    </div>
+    <div class="tableItem" *ngFor="let user of users | paginate: { itemsPerPage: 15, currentPage: p }">
+        
+      <div class="row"  style="display: flex; align-items: center;">
+        <div class="col-xs-1 ">{{user.username}}</div>
+        <div class="col-xs-3">{{user.fullName}}</div>
+        <div class="col-xs-3">{{user.emailAddress}}</div>
+        <div class="col-xs-2">{{user.department}}</div>
+        <div class="col-xs-2">{{user.position}}</div>
+        <div class="col-xs-1"><input type="checkbox" [checked]="user.isAdmin" /></div>
+      </div>
+      
+      <div class="row noDataOnGrid" *ngIf="!users || users.length === 0">No data available</div>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
