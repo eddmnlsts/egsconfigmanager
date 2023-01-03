@@ -54,7 +54,7 @@ namespace CalcmenuWebGlobal.Services.Client
         //SEARCH ALL
         public async Task<List<Numeros>> GetNumeroList()
         {
-            string strQuery = @"SELECT Numero, D.Description, Client = C.Description , Remarks, CreatedBy FROM EgswConfigDetails D
+            string strQuery = @"SELECT Numero, D.Description, Client = C.Description , Remarks FROM EgswConfigDetails D
                               INNER JOIN EgsToolsClients C ON C.Code = D.Client";
 
             var result = await _context.Get_Numeros.FromSqlRaw(strQuery).ToListAsync();
@@ -65,8 +65,7 @@ namespace CalcmenuWebGlobal.Services.Client
                                     Numero = c.Numero,
                                     Description = c.Description,
                                     Client = c.Client,
-                                    Remarks = c.Remarks,
-                                    CreatedBy = c.CreatedBy
+                                    Remarks = c.Remarks
                                 }).OrderByDescending(o => o.Numero));
             return retVal;
         }
@@ -75,7 +74,7 @@ namespace CalcmenuWebGlobal.Services.Client
         public async Task<List<Numeros>> UpdateNumeroConfig(Numeros[] numeros, int action)
         {
 
-            string storedProc = "sp_egswUpdateEgswConfigDetails @intNumero,@strDescription,@strClient,@strRemarks, @intCreatedBy, @intAction";
+            string storedProc = "sp_egswUpdateEgswConfigDetails @intNumero,@strDescription,@strClient,@strRemarks, @intAction";
 
             foreach (Numeros numero in numeros)
             {
@@ -84,14 +83,13 @@ namespace CalcmenuWebGlobal.Services.Client
                     new SqlParameter("strDescription", numero.Description),
                     new SqlParameter("strClient", numero.Client),
                     new SqlParameter("strRemarks", numero.Remarks),
-                    new SqlParameter("intCreatedBy", numero.CreatedBy),
                     new SqlParameter("intAction", action),
                 };
 
                 await _context.Database.ExecuteSqlRawAsync(storedProc, paramvalues);
             }
 
-            string storedProc2 = "SELECT Numero, Description, Client, Remarks, CreatedBy FROM EgswConfigDetails";
+            string storedProc2 = "SELECT Numero, Description, Client, Remarks FROM EgswConfigDetails";
             var result2  = await _context.Get_Numeros.FromSqlRaw(storedProc2).ToListAsync();
 
             var retVal = new List<Numeros>(result2.Select(c =>
@@ -100,8 +98,7 @@ namespace CalcmenuWebGlobal.Services.Client
                                     Numero = c.Numero,
                                     Description = c.Description,
                                     Client = c.Client,
-                                    Remarks = c.Remarks,
-                                    CreatedBy = c.CreatedBy
+                                    Remarks = c.Remarks
                                 }).OrderByDescending(o => o.Numero));
             return retVal;
 
@@ -139,7 +136,7 @@ namespace CalcmenuWebGlobal.Services.Client
 
                 //------------------------------------------------------------------------------------------
 
-                string storedProc2 = "SELECT Numero, Description, Client, Remarks, CreatedBy FROM EgswConfigDetails";
+                string storedProc2 = "SELECT Numero, Description, Client, Remarks FROM EgswConfigDetails";
                 var result2 = await _context.Get_Numeros.FromSqlRaw(storedProc2).ToListAsync();
 
                 var retVal = new List<Numeros>(result2.Select(c =>
@@ -148,8 +145,7 @@ namespace CalcmenuWebGlobal.Services.Client
                                         Numero = c.Numero,
                                         Description = c.Description,
                                         Client = c.Client,
-                                        Remarks = c.Remarks,
-                                        CreatedBy = c.CreatedBy
+                                        Remarks = c.Remarks
                                     }).OrderByDescending(o => o.Numero));
                 return retVal;
 
@@ -158,7 +154,7 @@ namespace CalcmenuWebGlobal.Services.Client
         //EDIT SEARCH
         public async Task<List<Numeros>> GetNumeroConfig(int numero)
         {
-            string strQuery = @"SELECT Numero, Description, Client, Remarks, CreatedBy FROM EgswConfigDetails WHERE Numero = " + numero;
+            string strQuery = @"SELECT Numero, Description, Client, Remarks FROM EgswConfigDetails WHERE Numero = " + numero;
             var result2 = await _context.Get_Numeros.FromSqlRaw(strQuery).ToListAsync();
 
             var retVal = new List<Numeros>(result2.Select(c =>
@@ -167,8 +163,7 @@ namespace CalcmenuWebGlobal.Services.Client
                                     Numero = c.Numero,
                                     Description = c.Description,
                                     Client = c.Client,
-                                    Remarks = c.Remarks,
-                                    CreatedBy = c.CreatedBy
+                                    Remarks = c.Remarks
                                 }).ToList());
             return retVal;
         }
@@ -176,7 +171,7 @@ namespace CalcmenuWebGlobal.Services.Client
         //SEARCH
         public async Task<List<Numeros>> GetNumero(string searchText)
         {
-            string strQuery = @"SELECT Numero, D.Description, Client = C.Description , Remarks, CreatedBy FROM EgswConfigDetails D
+            string strQuery = @"SELECT Numero, D.Description, Client = C.Description , Remarks FROM EgswConfigDetails D
                                 INNER JOIN EgsToolsClients C ON C.Code = D.Client
                                 WHERE D.Description LIKE '%" + searchText + "%'";
             var result = await _context.Get_Numeros.FromSqlRaw(strQuery).ToListAsync();
@@ -189,14 +184,13 @@ namespace CalcmenuWebGlobal.Services.Client
                                    Numero = c.Numero,
                                    Description = c.Description,
                                    Client = c.Client,
-                                   Remarks = c.Remarks,
-                                   CreatedBy = c.CreatedBy
+                                   Remarks = c.Remarks
                                }).ToList());
 
                 return retVal;
             } else
             {
-                string strQuery2 = "SELECT Numero, Description, Client, Remarks, CreatedBy FROM EgswConfigDetails WHERE Numero LIKE '%" + searchText + "%'";
+                string strQuery2 = "SELECT Numero, Description, Client, Remarks FROM EgswConfigDetails WHERE Numero LIKE '%" + searchText + "%'";
                 var result2 = await _context.Get_Numeros.FromSqlRaw(strQuery2).ToListAsync();
 
                 var retVal = new List<Numeros>(result2.Select(c =>
@@ -205,8 +199,7 @@ namespace CalcmenuWebGlobal.Services.Client
                                    Numero = c.Numero,
                                    Description = c.Description,
                                    Client = c.Client,
-                                   Remarks = c.Remarks,
-                                   CreatedBy = c.CreatedBy
+                                   Remarks = c.Remarks
                                }).ToList());
 
                 return retVal;

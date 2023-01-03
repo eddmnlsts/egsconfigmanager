@@ -11,6 +11,5 @@ namespace CalcmenuWebGlobal.Models
         public string Description { get; set; }
         public string Client { get; set; }
         public string Remarks { get; set; }
-        public int CreatedBy { get; set; }
     }
 }
