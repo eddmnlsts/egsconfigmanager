@@ -22,6 +22,7 @@ export const Url = {
     insertUpdatePicklist: "/Configuration/updatepicklist",
     deletePicklist: "/Configuration/deletepicklist/",
     getConfigCountByUser: "/User/getconfigcountbyuser/",
+    updateUserPermission: "/User/updatepermission/",
 
 
     getQuoteOfTheDay: 'https://quotes.rest/qod?language=en'

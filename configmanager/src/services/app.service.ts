@@ -98,6 +98,10 @@ export class AppService {
         return this.httpUtilityService.get(url.getConfigCountByUser + sourcenum);
     }
 
+    public changeUserPermission(sourcenum, isadmin) {
+        return this.httpUtilityService.get(url.updateUserPermission + sourcenum + "/" + isadmin);
+    }
+
 
 
     //Third-party APIs

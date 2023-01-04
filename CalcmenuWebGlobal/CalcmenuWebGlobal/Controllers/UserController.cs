@@ -56,5 +56,11 @@ namespace CalcmenuWebGlobal.Controllers
         {
             return Ok(await _userService.GetConfigCreatedByUser(sourceNum));
         }
+
+        [HttpGet("updatepermission/{sourceNum}/{isadmin}")]
+        public async Task<ActionResult<int>> UpdatePermission(int sourceNum, bool isadmin)
+        {
+            return Ok(await _userService.UpdateUserIsAdmin(sourceNum, isadmin));
+        }
     }
 }

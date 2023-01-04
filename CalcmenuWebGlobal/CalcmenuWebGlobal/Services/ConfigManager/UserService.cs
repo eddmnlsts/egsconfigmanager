@@ -125,6 +125,23 @@ namespace CalcmenuWebGlobal.Services.Client
             return retVal;
         }
 
+        public async Task<int> UpdateUserIsAdmin(int sourceNum, bool isAdmin)
+        {
+            int retVal = 0;
+            try
+            {
+                string strQuery = "UPDATE EgsToolsUsers SET IsAdmin = '" + isAdmin + "' WHERE SourceNum = " + sourceNum;
+                retVal = await _context.Database.ExecuteSqlRawAsync(strQuery);
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+                retVal = -2;
+            }
+
+            return retVal;
+        }
+
         public async Task<int> GetConfigCreatedByUser(int sourceNum)
         {
             int retVal = 0;

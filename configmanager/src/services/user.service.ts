@@ -14,6 +14,7 @@ export class UserService {
 
     loggedInUser;
     changedLoggedInUser = new Subject<User>();
+    changedUsers = new Subject<User[]>();
 
     constructor(private appService: AppService,
                 private encryptDecryptService: EncryptDecryptService) {}
@@ -45,6 +46,10 @@ export class UserService {
 
     getConfigCountByUser(sourcenum) {
         return this.appService.getConfigCountByUser(sourcenum);
+    }
+
+    updateUserPermission(sourcenum, isadmin) {
+        return this.appService.changeUserPermission(sourcenum, isadmin);
     }
 
 }
