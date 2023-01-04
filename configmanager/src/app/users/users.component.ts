@@ -40,7 +40,7 @@ export class UsersComponent implements OnInit {
     .then((result) => {
       if (result.isConfirmed) {
         this.userService.updateUserPermission(selSourceNum, selIsAdmin = !selIsAdmin).subscribe((res) => {
-          this.alertService.alertMixin(5000,'success','Update successfully');
+          this.alertService.alertMixin(5000,'success','Update successfully').fire();
         })
       } else {
         event.target.checked = selIsAdmin;
