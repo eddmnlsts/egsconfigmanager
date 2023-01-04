@@ -27,16 +27,10 @@ export class UsersComponent implements OnInit {
     this.spinnerService.show();
 
     this.userService.getUserList().subscribe((res) => {
-      console.log(res);
       this.users = res;
       this.users2 = res;
       this.spinnerService.hide();
     });
-
-    this.userChangeSub = this.userService.changedUsers
-    .subscribe((users : User[]) => {
-      this.users = users;
-    })
   }
 
  
@@ -46,7 +40,7 @@ export class UsersComponent implements OnInit {
     .then((result) => {
       if (result.isConfirmed) {
         this.userService.updateUserPermission(selSourceNum, selIsAdmin = !selIsAdmin).subscribe((res) => {
-          console.log(res);
+          this.alertService.alertMixin(5000,'success','Update successfully');
         })
       } else {
         event.target.checked = selIsAdmin;

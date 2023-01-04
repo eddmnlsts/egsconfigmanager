@@ -23,4 +23,12 @@
       <div class="row noDataOnGrid" *ngIf="!users || users.length === 0">No data available</div>
     </div>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <ngx-spinner
+    bdColor="rgba(0, 0, 0, 0.8)"
+    size="medium"
+    color="#fff"
+    type="square-jelly-box"
+    [fullScreen]="true"
+    ><p style="color: white">Please wait...</p></ngx-spinner
+  >
   </div>
